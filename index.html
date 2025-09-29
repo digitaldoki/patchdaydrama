@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patch Day Drama — Lubby Llama</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" 
+        href="https://github.com/digitaldoki/patchdaydrama/blob/main/lubbyproto2TrnsBG.png?raw=true">
+  
   <style>
     :root {
       --plumbob-green: #00FF00;
@@ -11,7 +16,9 @@
       --pastel-purple: #CBA0FF;
       --cloud-white: #F9FAFB;
       --midnight-grey: #1E1E2E;
+      --gold: #FFD700;
     }
+
     body {
       margin: 0;
       font-family: "Trebuchet MS", sans-serif;
@@ -19,6 +26,7 @@
       color: var(--cloud-white);
       text-align: center;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -37,23 +45,65 @@
     nav a:hover {
       color: var(--pastel-purple);
     }
+
     section {
       padding: 50px 20px;
     }
-    .chat-container {
+
+    /* Chat Section */
+    .chat-card {
+      padding: 20px;
+      background: var(--cloud-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border: 3px solid var(--gold);
+      position: relative;
       max-width: 900px;
       margin: auto;
-      background: var(--cloud-white);
-      border-radius: 15px;
-      padding: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
     }
+
     iframe {
       width: 100%;
-      height: 600px;
+      height: 750px; /* larger chat */
       border: none;
-      border-radius: 10px;
+      border-radius: 15px;
     }
+
+    /* Lubby Image */
+    .lubby-mascot {
+      margin-top: -50px; /* overlap effect */
+      height: 140px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .product-card {
+      background: var(--cloud-white);
+      border: 2px solid var(--plumbob-green);
+      border-radius: 15px;
+      padding: 20px;
+      width: 260px;
+      text-align: left;
+      color: black;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+    .product-card h3 {
+      margin-top: 0;
+      color: var(--midnight-grey);
+    }
+
+    /* Footer */
     footer {
       background: var(--midnight-grey);
       padding: 20px;
@@ -84,78 +134,66 @@
     <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
   </section>
 
- <!-- Chat Section: Hugging Style -->
-<section id="chat" style="background: #1E3A8A; color: white; padding: 80px 20px; text-align: center; position: relative;">
-  <h2 style="color: #FFD700;">💬 Ask Lubby the Llama</h2>
-  <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
+  <!-- Chat Section -->
+  <section id="chat" style="background: #1E3A8A; color: white; padding: 80px 20px;">
+    <h2 style="color: var(--gold);">💬 Ask Lubby the Llama</h2>
+    <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
 
-  <div style="position: relative; max-width: 800px; margin: auto;">
-    <!-- Chat Card -->
-    <div style="
-      padding: 20px;
-      background: #F9FAFB;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 3px solid #FFD700;
-    ">
+    <div class="chat-card">
       <iframe
         id="lubby-chat"
         src="https://digitaldoki-patchdaydrama.hf.space"
         frameborder="0"
-        style="width: 100%; height: 600px; border-radius: 15px; border: none;"
         allow="clipboard-read; clipboard-write"
       ></iframe>
     </div>
 
-    <!-- Lubby Overlap -->
-    <img src="./lubbyproto2TrnsBG.png" alt="Lubby the Llama" style="height: 120px;"/>
-</section>
+    <img src="https://github.com/digitaldoki/patchdaydrama/blob/main/lubbyproto2TrnsBG.png?raw=true" 
+         alt="Lubby the Llama" class="lubby-mascot"/>
+  </section>
 
-
-
+  <!-- Resources Section -->
   <section id="resources" class="content-section">
     <h2>🛠 Lubby-Approved Hardware Fixes 🟢</h2>
     <p style="text-align: center; color: var(--midnight-grey);">
-        Survive patch day chaos! Lubby has hand-picked the best gaming computers and drives to keep your Sims 4 running smooth—even with 50GB of Custom Content.
+      Survive patch day chaos! Lubby has hand-picked the best gaming computers and drives 
+      to keep your Sims 4 running smooth—even with 50GB of Custom Content.
     </p>
 
     <div class="product-grid">
 
-        <!-- CARD 1: Gaming PC Affiliate Link -->
-        <div class="product-card" onclick="window.open('https://example.com/affiliate-link-PC', '_blank');">
-            [image: Gaming PC]
-            <h3>Patch Day Ready Gaming PC</h3>
-            <p>A mid-range machine guaranteed to run The Sims 4 and all expansion packs with smooth framerates.</p>
-            <a href="https://example.com/affiliate-link-PC" 
-               style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-                View Deals
-            </a>
-        </div>
+      <!-- CARD 1 -->
+      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-PC', '_blank');">
+        <h3>Patch Day Ready Gaming PC</h3>
+        <p>A mid-range machine guaranteed to run The Sims 4 and all expansion packs with smooth framerates.</p>
+        <a href="https://example.com/affiliate-link-PC" 
+           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
+          View Deals
+        </a>
+      </div>
 
-        <!-- CARD 2: External Hard Drive Affiliate Link -->
-        <div class="product-card" onclick="window.open('https://example.com/affiliate-link-HDD', '_blank');">
-            [image: External Drive]
-            <h3>2TB External SSD Drive</h3>
-            <p>Offload your massive mods folder (CC) and speed up your load times drastically! Lubby approved.</p>
-            <a href="https://example.com/affiliate-link-HDD" 
-               style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-                Buy Now
-            </a>
-        </div>
+      <!-- CARD 2 -->
+      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-HDD', '_blank');">
+        <h3>2TB External SSD Drive</h3>
+        <p>Offload your massive mods folder (CC) and speed up your load times drastically! Lubby approved.</p>
+        <a href="https://example.com/affiliate-link-HDD" 
+           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
+          Buy Now
+        </a>
+      </div>
 
-        <!-- CARD 3: Modding Software / Tool Link (Alternative) -->
-        <div class="product-card" onclick="window.open('https://example.com/affiliate-link-Tool', '_blank');">
-            [image: Mod Manager]
-            <h3>Mod Conflict Detector Tool</h3>
-            <p>Quickly scan and clean broken or conflicting files without restarting your game 10 times.</p>
-            <a href="https://example.com/affiliate-link-Tool" 
-               style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-                Download
-            </a>
-        </div>
+      <!-- CARD 3 -->
+      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-Tool', '_blank');">
+        <h3>Mod Conflict Detector Tool</h3>
+        <p>Quickly scan and clean broken or conflicting files without restarting your game 10 times.</p>
+        <a href="https://example.com/affiliate-link-Tool" 
+           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
+          Download
+        </a>
+      </div>
 
     </div>
-</section>
+  </section>
 
   <!-- Footer -->
   <footer>
