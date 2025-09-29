@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patch Day Drama — Lubby Llama</title>
-  
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" 
-        href="https://github.com/digitaldoki/patchdaydrama/blob/main/lubbyproto2TrnsBG.png?raw=true">
-  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
     :root {
       --plumbob-green: #00FF00;
-      --sky-blue: #8CD3FF;
-      --pastel-purple: #CBA0FF;
+      --hot-pink: #FF1493;
+      --light-pink: #FFC0CB;
       --cloud-white: #F9FAFB;
       --midnight-grey: #1E1E2E;
       --gold: #FFD700;
@@ -22,7 +21,7 @@
     body {
       margin: 0;
       font-family: "Trebuchet MS", sans-serif;
-      background: linear-gradient(135deg, var(--sky-blue), var(--pastel-purple), var(--plumbob-green));
+      background: linear-gradient(135deg, var(--hot-pink), var(--light-pink));
       color: var(--cloud-white);
       text-align: center;
     }
@@ -35,6 +34,7 @@
       padding: 12px 20px;
       position: sticky;
       top: 0;
+      z-index: 100;
     }
     nav a {
       color: var(--plumbob-green);
@@ -43,11 +43,11 @@
       font-weight: bold;
     }
     nav a:hover {
-      color: var(--pastel-purple);
+      color: var(--hot-pink);
     }
 
     section {
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     /* Chat Section */
@@ -56,7 +56,7 @@
       background: var(--cloud-white);
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 3px solid var(--gold);
+      border: 3px solid var(--hot-pink);
       position: relative;
       max-width: 900px;
       margin: auto;
@@ -64,14 +64,14 @@
 
     iframe {
       width: 100%;
-      height: 750px; /* larger chat */
+      height: 750px;
       border: none;
       border-radius: 15px;
     }
 
-    /* Lubby Image */
+    /* Lubby Mascot */
     .lubby-mascot {
-      margin-top: -50px; /* overlap effect */
+      margin-top: -50px;
       height: 140px;
     }
 
@@ -135,7 +135,7 @@
   </section>
 
   <!-- Chat Section -->
-  <section id="chat" style="background: #1E3A8A; color: white; padding: 80px 20px;">
+  <section id="chat" style="background: var(--hot-pink); color: white; padding: 80px 20px;">
     <h2 style="color: var(--gold);">💬 Ask Lubby the Llama</h2>
     <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
 
