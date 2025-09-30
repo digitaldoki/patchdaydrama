@@ -50,16 +50,23 @@
     }
 
     /* Chat Section */
-    .chat-card {
-      padding: 20px;
-      background: var(--cloud-white);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 3px solid var(--plumbob-green); /* lime green border */
-      position: relative;
-      max-width: 900px;
-      margin: auto;
-    }
+   .chat-card {
+  padding: 20px;
+  background: var(--cloud-white);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  border: 3px solid var(--plumbob-green); /* lime green border */
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.chat-card:hover {
+  box-shadow: 0 0 25px var(--plumbob-green), 0 0 40px rgba(0,255,0,0.5);
+  transform: translateY(-5px);
+}
+
 
     iframe {
       width: 100%;
@@ -147,8 +154,8 @@
       ></iframe>
     </div>
 
-    <img src="https://github.com/digitaldoki/patchdaydrama/blob/main/lubbyproto2TrnsBG.png?raw=true" 
-         alt="Lubby the Llama" class="lubby-mascot"/>
+    <img src="./lubbyproto2TrnsBG.png" alt="Lubby the Llama" class="lubby-mascot"/>
+
   </section>
 
   <!-- Resources Section -->
