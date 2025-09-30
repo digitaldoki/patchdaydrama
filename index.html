@@ -117,12 +117,20 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav>
-    <span style="color: var(--plumbob-green); font-size: 20px; font-weight: bold;">Patch Day Drama</span>
-    <div>
-      <a href="#about">About</a>
-      <a href="#chat">Chat</a>
-    </div>
+ <nav>
+  <a href="#about">✨ About ✨</a>
+  <a href="#chat">✨ Chat ✨</a>
+  <a href="#resources">✨ Resources ✨</a>
+</nav>
+
+<div class="chat-card">
+  <iframe
+    id="lubby-chat"
+    src="https://digitaldoki-patchdaydrama.hf.space?__theme=light"
+    style="width:100%; height:80vh; min-height:600px; border:none; border-radius:15px; background:linear-gradient(135deg, #fff8fb, #f3e8ff);"
+  ></iframe>
+</div>
+
   </nav>
 
   <!-- About Section -->
@@ -132,22 +140,6 @@
     <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
   </section>
 
-  <!-- Chat Section -->
-  <section id="chat" style="background: var(--hot-pink); color: white; padding: 80px 20px;">
-    <h2 style="color: var(--plumbob-green);">💬 Ask Lubby the Llama</h2>
-    <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
-
-   <div class="chat-card">
-  <iframe
-    id="lubby-chat"
-    src="https://digitaldoki-patchdaydrama.hf.space"
-    style="width:100%; height:80vh; min-height:600px; border:none; border-radius:15px; background:#1E1E2E;"
-    allow="clipboard-read; clipboard-write"
-    loading="lazy"
-  ></iframe>
-</div>
-
-  </section>
 
   <!-- Resources Section -->
   <section id="resources" class="content-section">
