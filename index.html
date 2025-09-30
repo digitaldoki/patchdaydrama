@@ -50,35 +50,27 @@
     }
 
     /* Chat Section */
-   .chat-card {
-  padding: 20px;
-  background: var(--cloud-white);
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  border: 3px solid var(--plumbob-green); /* lime green border */
-  position: relative;
-  max-width: 900px;
-  margin: auto;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.chat-card:hover {
-  box-shadow: 0 0 25px var(--plumbob-green), 0 0 40px rgba(0,255,0,0.5);
-  transform: translateY(-5px);
-}
-
+    .chat-card {
+      padding: 20px;
+      background: var(--cloud-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border: 3px solid var(--plumbob-green); /* lime green border */
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .chat-card:hover {
+      box-shadow: 0 0 25px var(--plumbob-green), 0 0 40px rgba(0,255,0,0.5);
+      transform: translateY(-5px);
+    }
 
     iframe {
       width: 100%;
-      height: 750px;
+      height: 80vh; /* fills most of the viewport */
       border: none;
       border-radius: 15px;
-    }
-
-    /* Lubby Mascot */
-    .lubby-mascot {
-      margin-top: -50px;
-      height: 140px;
     }
 
     /* Product Grid */
@@ -142,22 +134,19 @@
 
   <!-- Chat Section -->
   <section id="chat" style="background: var(--hot-pink); color: white; padding: 80px 20px;">
-  <h2 style="color: var(--plumbob-green);">💬 Ask Lubby the Llama</h2>
-  <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
+    <h2 style="color: var(--plumbob-green);">💬 Ask Lubby the Llama</h2>
+    <p style="margin-bottom: 30px;">Patch day chaos? Mods broken? I’ve got your back 🦙🔧</p>
 
-  <div class="chat-card">
-    <iframe
-      id="lubby-chat"
-      src="https://digitaldoki-patchdaydrama.hf.space"
-      frameborder="0"
-      allow="clipboard-read; clipboard-write"
-    ></iframe>
-  </div>
-
-  <img src="https://raw.githubusercontent.com/digitaldoki/patchdaydrama/refs/heads/main/Lubbyproto2.png" 
-     alt="Lubby the Llama" class="lubby-mascot"/>
-
-</section>
+    <div class="chat-card">
+      <iframe
+        id="lubby-chat"
+        src="https://digitaldoki-patchdaydrama.hf.space"
+        frameborder="0"
+        allow="clipboard-read; clipboard-write"
+        scrolling="no"
+      ></iframe>
+    </div>
+  </section>
 
   <!-- Resources Section -->
   <section id="resources" class="content-section">
