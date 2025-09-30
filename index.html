@@ -124,28 +124,18 @@
 </nav>
 
 <!-- Chat Section -->
-<section id="chat" style="padding: 60px 20px; text-align: center;">
+<section id="chat">
   <h2 style="color: var(--plumbob-green); margin-bottom: 20px;">💬 Ask Lubby the Llama</h2>
   <p style="margin-bottom: 30px; color: var(--midnight-grey);">
     Patch day chaos? Mods broken? Lubby’s got your back 🦙🔧
   </p>
 
-  <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
-
-    <!-- Chat Card (Left) -->
-    <div class="chat-card" style="
-      flex: 1 1 500px;
-      max-width: 600px;
-      padding: 15px;
-      background: linear-gradient(135deg, #fff8fb, #f3e8ff);
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      border: 3px solid var(--plumbob-green);
-    ">
+  <div class="chat-layout">
+    <!-- Chat Card -->
+    <div class="chat-card">
       <iframe
         id="lubby-chat"
         src="https://digitaldoki-patchdaydrama.hf.space?__theme=light&embed=true"
-        style="width:100%; height:400px; border:none; border-radius:15px; background:#fff;"
         allow="clipboard-read; clipboard-write"
         loading="lazy"
       ></iframe>
@@ -157,21 +147,38 @@
       </p>
     </div>
 
-    <!-- Lubby Mascot (Right) -->
-    <div style="flex: 0 1 300px;">
-      <img src="assets/img/lubby.png" 
-     alt="Lubby Llama"
-     style="max-width: 100%; height: auto; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3)); opacity: 0.95;"/>
-</div>
+    <!-- Lubby Mascot -->
+    <div class="lubby-logo">
+      <img src="assets/img/lubby.png" alt="Lubby Llama"/>
+    </div>
+  </div>
 </section>
 
+<!-- About Section -->
+<section id="about">
+  <h1>🦙 Welcome to Patch Day Drama</h1>
+  <p>Meet <strong>Lubby Llama</strong> — your AI helper for patch day chaos.</p>
+  <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
 
-  <!-- About Section -->
-  <section id="about">
-    <h1>🦙 Welcome to Patch Day Drama</h1>
-    <p>Meet <strong>Lubby Llama</strong> — your AI helper for patch day chaos.</p>
-    <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
-  </section>
+  <!-- About Cards -->
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🌟 Who’s Lubby?</h3>
+      <p>A community-built llama mascot here to save your Sims 4 from patch-day drama.</p>
+    </div>
+
+    <div class="about-card">
+      <h3>🛠 What I Do</h3>
+      <p>Help Simmers troubleshoot mods, find fixes, and keep your game running smoothly.</p>
+    </div>
+
+    <div class="about-card">
+      <h3>💚 Community Love</h3>
+      <p>Built by Simmers, for Simmers — fueled by creativity, chaos, and caffeine.</p>
+    </div>
+  </div>
+</section>
+
 
 
   <!-- Resources Section -->
