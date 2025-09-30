@@ -8,7 +8,43 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <style>
+  <style>.lubby-logo img {
+  max-width: 400px; /* bigger Lubby */
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+  opacity: 0.95;
+}
+
+/* About Section Cards */
+.about-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.about-card {
+  background: var(--cloud-white);
+  border: 2px solid var(--plumbob-green);
+  border-radius: 15px;
+  padding: 20px;
+  width: 260px;
+  color: var(--midnight-grey);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+.about-card h3 {
+  margin-top: 0;
+  color: var(--hot-pink);
+}
+
     :root {
       --plumbob-green: #00FF00;
       --hot-pink: #FF1493;
