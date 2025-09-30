@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patch Day Drama — Lubby Llama</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
@@ -25,40 +23,24 @@
       text-align: center;
     }
 
-    nav {
+    /* Hero Chat + Lubby */
+    .hero {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      background: var(--midnight-grey);
-      padding: 12px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: var(--plumbob-green);
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: var(--hot-pink);
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 60px 20px 40px;
     }
 
-    section {
-      padding: 60px 20px;
-    }
-
-    /* Chat Section */
     .chat-card {
-      padding: 20px;
+      flex: 1 1 400px;
+      max-width: 500px;
       background: var(--cloud-white);
+      border: 3px solid var(--plumbob-green);
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 3px solid var(--plumbob-green); /* lime green border */
-      position: relative;
-      max-width: 1000px;
-      margin: 40px auto;
+      padding: 15px;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
     .chat-card:hover {
@@ -66,11 +48,47 @@
       transform: translateY(-5px);
     }
 
-    iframe {
+    .chat-card iframe {
       width: 100%;
-      height: 80vh; /* fills most of the viewport */
+      height: 380px; /* smaller height */
       border: none;
       border-radius: 15px;
+      background: #fff;
+    }
+
+    .lubby-logo img {
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+      opacity: 0.95;
+    }
+
+    /* About Section Cards */
+    .about-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .about-card {
+      background: var(--cloud-white);
+      border: 2px solid var(--plumbob-green);
+      border-radius: 15px;
+      padding: 20px;
+      width: 260px;
+      color: var(--midnight-grey);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+    .about-card h3 {
+      margin-top: 0;
+      color: var(--hot-pink);
     }
 
     /* Product Grid */
@@ -112,74 +130,15 @@
       color: var(--plumbob-green);
       text-decoration: none;
       font-weight: bold;
-    }.lubby-logo img {
-  max-width: 400px; /* bigger Lubby */
-  height: auto;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
-  opacity: 0.95;
-}
-
-/* About Section Cards */
-.about-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.about-card {
-  background: var(--cloud-white);
-  border: 2px solid var(--plumbob-green);
-  border-radius: 15px;
-  padding: 20px;
-  width: 260px;
-  color: var(--midnight-grey);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.about-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-}
-
-.about-card h3 {
-  margin-top: 0;
-  color: var(--hot-pink);
-}
-
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <span style="color: var(--plumbob-green); font-size: 20px; font-weight: bold;">Patch Day Drama</span>
-    <div>
-      <a href="#about">About</a>
-      <a href="#chat">Chat</a>
-    </div>
-  </nav>
 
-  <!-- About Section -->
-  <section id="about">
-    <h1>🦙 Welcome to Patch Day Drama</h1>
-    <p>Meet <strong>Lubby Llama</strong> — your AI helper for patch day chaos.</p>
-    <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
-  </section>
-
- <!-- Chat Section -->
-<section id="chat">
-  <h2 style="color: var(--plumbob-green); margin-bottom: 20px;">💬 Ask Lubby the Llama</h2>
-  <p style="margin-bottom: 30px; color: var(--midnight-grey);">
-    Patch day chaos? Mods broken? Lubby’s got your back 🦙🔧
-  </p>
-
-  <div class="chat-layout">
-    <!-- Chat Card -->
+  <!-- Hero Section: Chat + Lubby -->
+  <section class="hero">
     <div class="chat-card">
       <iframe
-        id="lubby-chat"
         src="https://digitaldoki-patchdaydrama.hf.space?__theme=light&embed=true"
         allow="clipboard-read; clipboard-write"
         loading="lazy"
@@ -192,38 +151,32 @@
       </p>
     </div>
 
-    <!-- Lubby Mascot -->
     <div class="lubby-logo">
       <img src="assets/img/lubby.png" alt="Lubby Llama"/>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- About Section -->
-<section id="about">
-  <h1>🦙 Welcome to Patch Day Drama</h1>
-  <p>Meet <strong>Lubby Llama</strong> — your AI helper for patch day chaos.</p>
-  <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
+  <!-- About Section -->
+  <section id="about">
+    <h1>🦙 Welcome to Patch Day Drama</h1>
+    <p>Meet <strong>Lubby Llama</strong> — your AI helper for patch day chaos.</p>
+    <p>Helping Simmers fix broken mods, crashes, and CC troubles — safely and stress-free.</p>
 
-  <!-- About Cards -->
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>🌟 Who’s Lubby?</h3>
-      <p>A community-built llama mascot here to save your Sims 4 from patch-day drama.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🌟 Who’s Lubby?</h3>
+        <p>A community-built llama mascot here to save your Sims 4 from patch-day drama.</p>
+      </div>
+      <div class="about-card">
+        <h3>🛠 What I Do</h3>
+        <p>Help Simmers troubleshoot mods, find fixes, and keep your game running smoothly.</p>
+      </div>
+      <div class="about-card">
+        <h3>💚 Community Love</h3>
+        <p>Built by Simmers, for Simmers — fueled by creativity, chaos, and caffeine.</p>
+      </div>
     </div>
-
-    <div class="about-card">
-      <h3>🛠 What I Do</h3>
-      <p>Help Simmers troubleshoot mods, find fixes, and keep your game running smoothly.</p>
-    </div>
-
-    <div class="about-card">
-      <h3>💚 Community Love</h3>
-      <p>Built by Simmers, for Simmers — fueled by creativity, chaos, and caffeine.</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Resources Section -->
   <section id="resources" class="content-section">
@@ -234,44 +187,28 @@
     </p>
 
     <div class="product-grid">
-
-      <!-- CARD 1 -->
-      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-PC', '_blank');">
+      <div class="product-card">
         <h3>Patch Day Ready Gaming PC</h3>
         <p>A mid-range machine guaranteed to run The Sims 4 and all expansion packs with smooth framerates.</p>
-        <a href="https://example.com/affiliate-link-PC" 
-           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-          View Deals
-        </a>
+        <a href="https://example.com/affiliate-link-PC">View Deals</a>
       </div>
-
-      <!-- CARD 2 -->
-      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-HDD', '_blank');">
+      <div class="product-card">
         <h3>2TB External SSD Drive</h3>
         <p>Offload your massive mods folder (CC) and speed up your load times drastically! Lubby approved.</p>
-        <a href="https://example.com/affiliate-link-HDD" 
-           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-          Buy Now
-        </a>
+        <a href="https://example.com/affiliate-link-HDD">Buy Now</a>
       </div>
-
-      <!-- CARD 3 -->
-      <div class="product-card" onclick="window.open('https://example.com/affiliate-link-Tool', '_blank');">
+      <div class="product-card">
         <h3>Mod Conflict Detector Tool</h3>
         <p>Quickly scan and clean broken or conflicting files without restarting your game 10 times.</p>
-        <a href="https://example.com/affiliate-link-Tool" 
-           style="background: var(--plumbob-green); color: black; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold;">
-          Download
-        </a>
+        <a href="https://example.com/affiliate-link-Tool">Download</a>
       </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Patch Day Drama — Community-Built</p>
     <p><a href="https://www.buymeacoffee.com/patchdaydrama" target="_blank">☕ Support the Project</a></p>
   </footer>
+
 </body>
 </html>
