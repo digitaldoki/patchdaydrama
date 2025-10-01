@@ -169,28 +169,46 @@
   background: hotpink;
   color: white;
 }
+    .chat-section {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.chat-sub {
+  margin-bottom: 20px;
+  color: #1E1E2E;
+}
+
+.chat-embed {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px #00FF00;
+}
+
+.chat-iframe {
+  width: 100%;
+  height: 600px; /* adjust until perfect fit */
+  border: none;
+  background: transparent;
+}
+
 
   </style>
 </head>
 <body>
 
-  <!-- Chat Section -->
+ <!-- Chat Section -->
 <section id="chat" class="chat-section">
   <h2>💬 Ask Lubby the Llama</h2>
+  <p class="chat-sub">Patch day chaos? Mods broken? Lubby’s got your back 🦙🔧</p>
 
-  <!-- Theme toggle pill -->
-  <div class="theme-toggle">
-    <button id="pinkTheme" class="pill active">🌸 Hot Pink</button>
-    <button id="lightTheme" class="pill">☀️ Light</button>
-  </div>
-
-  <!-- Hugging Face Embed -->
   <div class="chat-embed">
     <iframe
       src="https://digitaldoki-patchdaydrama.hf.space"
       frameborder="0"
       class="chat-iframe"
-      allow="clipboard-write; clipboard-read"
+      allow="clipboard-read; clipboard-write"
     ></iframe>
   </div>
 </section>
