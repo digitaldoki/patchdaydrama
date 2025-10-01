@@ -1,10 +1,8 @@
+import os
 import gradio as gr
 from openai import OpenAI
 
-# Initialize client (HF injects API key automatically)
-client = OpenAI()
-
-# --- System Prompt ---
+# --- Lubby Llama Prompt ---
 SYSTEM_PROMPT = """
 You are Lubby Llama, the Patch Day Drama AI helper.
 Rules:
@@ -14,75 +12,99 @@ Rules:
 4. Be playful, supportive, and llama-themed in tone.
 """
 
-# --- Chat function ---
-def chat_fn(message, history):
-    msgs = [{"role": "system", "content": SYSTEM_PROMPT}]
-    for h in history:
-        role = "user" if h[0] else "assistant"
-        msgs.append({"role": role, "content": h[1]})
-    msgs.append({"role": "user", "content": message})
+# --- Initialize OpenAI client ---
+client = OpenAI()  # Hugging Face handles OPENAI_API_KEY for you
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=msgs,
-    )
-    reply = response.choices[0].message.content
-    return reply
+# --- Free message limiter ---
+MAX_FREE_MESSAGES = 5
+user_messages = {}
 
-# --- CSS styling with animated glow ---
-custom_css = """
-body {
-  background: linear-gradient(135deg, #ff66b2, #ff3399);
-  font-family: 'Comic Sans MS', sans-serif;
-}
+def chat_with_lubby(message, history, username="guest"):
+    """Main chat function for Lubby Llama"""
+    count = user_messages.get(username, 0)
+    if count >= MAX_FREE_MESSAGES:
+        return (
+            "🦙 You've hit the free chat limit.\n\n"
+            "Support Patch Day Drama 👉 https://www.buymeacoffee.com/patchdaydrama"
+        )
 
-#chatbot {
-  border: 3px solid #00ff99 !important;
-  border-radius: 20px !important;
-  background: #fff8fb !important;
-  animation: neon-glow 2s infinite alternate;
-}
+    user_messages[username] = count + 1
 
-@keyframes neon-glow {
-  from {
-    box-shadow: 0 0 15px #00ff99, 0 0 30px #00ff99;
-  }
-  to {
-    box-shadow: 0 0 25px #00ffcc, 0 0 50px #00ffcc;
-  }
-}
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # efficient & cheap model
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": message},
+            ],
+        )
+        return response.choices[0].message.content.strip()
 
-textarea, input {
-  border: 2px solid #00ff99 !important;
-  border-radius: 12px !important;
-}
+    except Exception as e:
+        return f"⚠️ Error: {str(e)}"
 
-button {
-  background: #00ff99 !important;
-  color: black !important;
-  font-weight: bold !important;
-  border-radius: 12px !important;
-}
 
-button:hover {
-  background: #00cc7a !important;
-}
-"""
+# --- Build custom UI ---
+with gr.Blocks(
+    css="""
+    body {
+        background: linear-gradient(135deg, #FF1493, #FFC0CB);
+        font-family: 'Trebuchet MS', sans-serif;
+    }
+    #chat-card {
+        background: #fff8fb;
+        border: 3px solid #00FF00;
+        border-radius: 20px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        padding: 20px;
+        max-width: 700px;
+        margin: auto;
+    }
+    #lubby-logo {
+        max-height: 120px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+    #theme-toggle {
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    #theme-toggle label {
+        padding: 6px 16px;
+        border-radius: 20px;
+        background: #eee;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
+    #theme-toggle input[type=radio] { display: none; }
+    #theme-toggle input[type=radio]:checked + label {
+        background: #FF1493;
+        color: white;
+        box-shadow: 0 0 10px rgba(255,20,147,0.6);
+    }
+    .gradio-container { background: transparent !important; }
+    footer {display:none !important;}
+    """,
+) as demo:
 
-# --- Interface layout ---
-with gr.Blocks(css=custom_css, theme=gr.themes.Soft()) as demo:
-    with gr.Row():
-        with gr.Column(scale=2):
-            gr.HTML("<h1>🦙 Patch Day Drama — Lubby Llama to the Rescue!</h1>"
-                    "<p>Patch day chaos? Mods broken? Lubby’s got your back 🦙🔧</p>")
-            chatbot = gr.Chatbot(elem_id="chatbot", height=400)
-            msg = gr.Textbox(placeholder="Type your message...")
-            clear = gr.Button("Clear")
-        with gr.Column(scale=1):
-            gr.Image("assets/img/lubby.png", show_label=False)
+    with gr.Column(elem_id="chat-card"):
+        gr.Image("./assets/img/lubby.png", elem_id="lubby-logo", show_label=False)
 
-    msg.submit(chat_fn, [msg, chatbot], chatbot)
-    msg.submit(lambda: "", None, msg)  # clear input after sending
-    clear.click(lambda: None, None, chatbot, queue=False)
+        with gr.Row(elem_id="theme-toggle"):
+            gr.Radio(
+                ["🌸 Hot Pink", "☁️ Light"],
+                value="🌸 Hot Pink",
+                label="",
+                interactive=True,
+            )
 
-demo.launch()
+        gr.Markdown("## 💬 Ask Lubby the Llama")
+        chatbot = gr.ChatInterface(fn=chat_with_lubby)
+
+
+# --- Launch ---
+if __name__ == "__main__":
+    demo.launch()
