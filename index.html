@@ -131,32 +131,70 @@
       text-decoration: none;
       font-weight: bold;
     }
+    .chat-section {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.chat-embed {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px #00ff88;
+}
+
+.chat-iframe {
+  width: 100%;
+  height: 600px; /* adjust until perfect fit */
+  border: none;
+  background: transparent;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pill {
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  margin: 0 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pill.active {
+  background: hotpink;
+  color: white;
+}
+
   </style>
 </head>
 <body>
 
-  <!-- Hero Section: Chat + Lubby -->
-  <section class="hero">
-    
-<iframe 
-  src="https://digitaldoki-patchdaydrama.hf.space"
-  frameborder="2"
-  width="65%"
-  height="450"
-  style="border-radius: 20px; box-shadow: 0 0 25px #00FF00;">
-</iframe>
-      <p style="margin-top:10px;">
-        <a href="https://digitaldoki-patchdaydrama.hf.space" target="_blank" 
-           style="color: var(--hot-pink); font-weight:bold; text-decoration:none;">
-           🔗 Expand Full Chat
-        </a>
-      </p>
-    </div>
+  <!-- Chat Section -->
+<section id="chat" class="chat-section">
+  <h2>💬 Ask Lubby the Llama</h2>
 
-    <div class="lubby-logo">
-      <img src="assets/img/lubby.png" alt="Lubby Llama"/>
-    </div>
-  </section>
+  <!-- Theme toggle pill -->
+  <div class="theme-toggle">
+    <button id="pinkTheme" class="pill active">🌸 Hot Pink</button>
+    <button id="lightTheme" class="pill">☀️ Light</button>
+  </div>
+
+  <!-- Hugging Face Embed -->
+  <div class="chat-embed">
+    <iframe
+      src="https://digitaldoki-patchdaydrama.hf.space"
+      frameborder="0"
+      class="chat-iframe"
+      allow="clipboard-write; clipboard-read"
+    ></iframe>
+  </div>
+</section>
+
 
   <!-- About Section -->
   <section id="about">
